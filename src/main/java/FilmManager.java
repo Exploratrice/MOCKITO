@@ -1,16 +1,40 @@
 public class FilmManager {
+    private String[] films = new String[0];
+    private int limit;
 
-    ...
-            ??? resultLength;
-  if ??? {
-        resultLength = ???
-    } else {
-        resultLength = ???
+    public FilmManager() {
+        this.limit = 5;
     }
-  ??? result = new ???[resultLength];
-  for (???) {
-        // заполняем result из массива, что лежит в поле
-        // в обратном порядке
+
+    public FilmManager(int limit) {
+        this.limit = limit;
     }
-...
+
+    public void add(String film) {
+        String[] tmp = new String[films.length + 1];
+        for (int i = 0; i < films.length; i++) {
+            tmp[i] = films[i];
+        }
+        tmp[tmp.length - 1] = film;
+        films = tmp;
+    }
+
+    public String[] findAll() {
+        return films;
+    }
+
+    public String[] findLast() {
+        int resultLength;
+        if (films.length < limit) {
+            resultLength = films.length;
+        } else {
+            resultLength = limit;
+        }
+
+        String[] tmp = new String[resultLength];
+        for (int i = 0; i < tmp.length; i++) {
+            tmp[i] = films[films.length - 1 - i];
+        }
+        return tmp;
+    }
 }
