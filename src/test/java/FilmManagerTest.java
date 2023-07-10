@@ -105,7 +105,7 @@ public class FilmManagerTest {
         manager.add("Bro");
         manager.add("Cat");
 
-        String[] expected = {"Cat", "Bro", "Hello", "Matrix", "Everybody Lies", "Number One"};
+        String[] expected = {"Cat", "Bro", "Hello", "Matrix", "Everybody Lies"};
         String[] actual = manager.findLast();
         Assertions.assertArrayEquals(expected, actual);
     }
